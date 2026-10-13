@@ -3,6 +3,8 @@ const mongoose = require('mongoose');
 const cors = require('cors');
 const dotenv = require('dotenv');
 
+
+
 dotenv.config();
 const app = express();
 
@@ -20,6 +22,9 @@ app.get('/',(req,res)=>{
     error:false,
   })
 })
+const dns = require("node:dns");
+
+dns.setServers(["8.8.8.8", "8.8.4.4"]);
 
 // MongoDB Connection
 mongoose.connect(process.env.MONGO_URI)
